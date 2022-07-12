@@ -104,8 +104,8 @@ def set_master(update, context):
 
     game.set_master(update.message.from_user.id)
 
-    show_word_btn = InlineKeyboardButton("Sözə bax 🐿️", callback_data='show_word')
-    change_word_btn = InlineKeyboardButton("Sözü dəyiş ↺", callback_data='change_word')
+    show_word_btn = InlineKeyboardButton("Ada bax 🐿️", callback_data='show_word')
+    change_word_btn = InlineKeyboardButton("Adı dəyiş ↺", callback_data='change_word')
 
     keyboard = [[show_word_btn], [change_word_btn]]
     reply_markup = InlineKeyboardMarkup(keyboard)
@@ -205,7 +205,7 @@ def is_word_answered(update, context):
     word = game.get_current_word()
 
     if game.is_word_answered(user_id, text):
-        update.message.reply_text('*{}* sözünü [{}](tg://user?id={}) tapdı'.format(word, username,user_id), reply_to_message_id=True, parse_mode=ParseMode.MARKDOWN)
+        update.message.reply_text( [{}](tg://user?id={}) '*{}* adını tapdı'.format(word, username,user_id), reply_to_message_id=True, parse_mode=ParseMode.MARKDOWN)
 
         game.update_rating(user_id, username)
 
